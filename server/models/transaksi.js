@@ -1,4 +1,5 @@
 var mongoose = require('mongoose')
+var Schema = mongoose.Schema
 
 var transaksiSchema = new mongoose.Schema({
   tanggal : {
@@ -6,11 +7,11 @@ var transaksiSchema = new mongoose.Schema({
     required :true
   },
   listBarang : {
-    type : Array ,
+    type : [{type:Schema.Types.ObjectId, ref: 'Barang'}],
     required :true
   },
   total : {
-    type : String,
+    type : Number,
     required :true
   }
 })

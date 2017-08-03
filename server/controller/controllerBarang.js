@@ -1,6 +1,6 @@
 'use strict'
 
-const Barang = require('../model/Barang');
+const Barang = require('../models/barang');
 
 function getAllBarang(req,res) {
   Barang.find()
@@ -24,7 +24,7 @@ function getOneBarang(req,res){
 
 function getByCategory(req,res){
   Barang.find({
-    kategori: req.body.category
+    kategori: req.params.kategori
   })
   .then(result=>{
     res.send(result)
@@ -35,7 +35,7 @@ function getByCategory(req,res){
 }
 
 function deleteBarang(req,res){
-  Barang.delete({
+  Barang.deleteOne({
     _id: req.params.id
   })
   .then(log=>{
@@ -50,11 +50,20 @@ function editBarang(req,res){
   Barang.findOneAndUpdate({
     _id:req.params.id
   },{
-
+    nama_barang: req.body.nama_barang,
+    kategori: req.body.kategori,
+    harga: req.body.harga,
+    stok: req.body.stok
+  })
+  .then(log=>{
+    res.send(log)
+  })
+  .catch(err=>{
+    res.send(err)
   })
 }
 
-function inputBarang(req,res){
+function addBarang(req,res){
   Barang.create({
     nama_barang: req.body.nama_barang,
     kategori: req.body.kategori,
@@ -68,6 +77,7 @@ function inputBarang(req,res){
     res.send(err)
   })
 }
+
 
 
 module.exports = {

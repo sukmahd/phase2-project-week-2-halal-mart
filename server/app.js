@@ -10,6 +10,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/halal-mart')
 
 var index = require('./routes/index');
+var barang = require('./routes/barang');
+var transaksi = require('./routes/transaksi');
 
 
 var app = express();
@@ -29,6 +31,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/barang', barang)
+app.use('/transaksi', transaksi)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
