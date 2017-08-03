@@ -10,6 +10,7 @@ router.get('/by/:kategori', controller.getByCategory)
 router.post('/', controller.addBarang)
 router.delete('/:id', controller.deleteBarang)
 router.put('/:id', controller.editBarang)
+router.put('/stok/:id', controller.editStok)
 
 
 module.exports = router;

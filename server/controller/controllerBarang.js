@@ -78,6 +78,21 @@ function addBarang(req,res){
   })
 }
 
+function editStok(req,res){
+  Barang.where({
+    _id: req.params.id
+  })
+  .update({
+    stok: req.body.stok
+  })
+  .then(log=>{
+    res.send(log)
+  })
+  .catch(err=>{
+    res.send(err)
+  })
+}
+
 
 
 module.exports = {
@@ -86,5 +101,6 @@ module.exports = {
   getOneBarang,
   addBarang,
   deleteBarang,
-  editBarang
+  editBarang,
+  editStok
 };
