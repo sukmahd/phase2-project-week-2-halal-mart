@@ -10,11 +10,11 @@ var barangSchema = new mongoose.Schema({
     required :true
   },
   harga: {
-    type : String,
+    type : Number,
     required :true
   },
   stok : {
-    type : String,
+    type : Number,
     required :true
   }
 })
