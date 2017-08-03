@@ -6,7 +6,7 @@ var transaksiSchema = new mongoose.Schema({
     required :true
   },
   listBarang : {
-    type : String,
+    type : Array ,
     required :true
   },
   total : {
