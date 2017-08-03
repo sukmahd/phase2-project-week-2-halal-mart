@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/halal-mart')
 
 var index = require('./routes/index');
+var users = require('./routes/users')
 
 
 var app = express();
