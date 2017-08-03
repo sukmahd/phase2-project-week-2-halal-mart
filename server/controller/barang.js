@@ -24,7 +24,7 @@ function getOneBarang(req,res){
 
 function getByCategory(req,res){
   Barang.find({
-    category: req.body.category
+    kategori: req.body.category
   })
   .then(result=>{
     res.send(result)
@@ -50,7 +50,22 @@ function editBarang(req,res){
   Barang.findOneAndUpdate({
     _id:req.params.id
   },{
-    
+
+  })
+}
+
+function inputBarang(req,res){
+  Barang.create({
+    nama_barang: req.body.nama_barang,
+    kategori: req.body.kategori,
+    harga: req.body.harga,
+    stok: req.body.stok
+  })
+  .then(log=>{
+    res.send(log)
+  })
+  .catch(err=>{
+    res.send(err)
   })
 }
 
