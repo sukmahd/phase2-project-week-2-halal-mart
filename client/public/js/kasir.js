@@ -37,9 +37,32 @@ const app = new Vue({
         barang.quantity = 1;
         this.cart.push(barang)
       }
+
+      const dataBaru = this.listBarang.map(function(item){
+        if(barang._id == item._id){
+          item.stok -= 1
+          return item
+        }else {
+          return item
+        }
+      })
+
+      this.listBarang = dataBaru
     },
-    removeFromCart:function(barang){
-      this.cart.splice(this.cart.indexOf(barang), 1)
+    removeFromCart:function(barang, index){
+      const dataBaru = this.listBarang.map(function(item){
+        console.log(barang._id);
+        console.log(item._id);
+        if(barang._id == item._id){
+          item.stok += barang.quantity
+          return item
+        }else {
+          return item
+        }
+      })
+
+      this.cart.splice(index, 1)
+        this.listBarang = dataBaru
     },
     checkoutBarang:function(){
       const self = this

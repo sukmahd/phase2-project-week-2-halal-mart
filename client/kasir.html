@@ -36,6 +36,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>No</th>
                 <th>Nama</th>
                 <th>Harga</th>
                 <th>Jumlah</th>
@@ -45,12 +46,13 @@
             </thead>
             <tbody>
               <!-- CONTENT PLACE -->
-              <tr v-for="barang in cart">
+              <tr v-for="(barang, index) in cart">
+                <td>{{index+1}}</td>
                 <td>{{barang.nama_barang}}</td>
                 <td>{{barang.harga}}</td>
                 <td>{{barang.quantity}}</td>
                 <td>{{barang.quantity * barang.harga}}</td>
-                <td><span class="glyphicon glyphicon-trash" @click="removeFromCart"></span></td>
+                <td><span class="glyphicon glyphicon-trash" @click="removeFromCart(barang, index)"></span></td>
               </tr>
               <!-- CONTENT END -->
               <tr>
@@ -150,7 +152,9 @@
                       <div class="caption">
                         <h5>{{item.nama_barang}}</h5>
                         <h6>Rp. {{item.harga}}</h6>
-                        <button type="button" name="button" @click="addToCart(item)">Add To Cart</button>
+                        <h6>Stok: {{item.stok}}</h6>
+                        <button v-if="item.stok > 0" type="button" name="button" @click="addToCart(item)">Add To Cart</button>
+                        <button v-else type="button" name="button">Sold Out</button>
                       </div>
                     </div>
                 </div>
