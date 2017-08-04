@@ -4,9 +4,9 @@
 /*
  * General styles
  */
- 
 
- 
+
+
 body, html {
     height: 100%;
     background-repeat: no-repeat;
@@ -289,7 +289,7 @@ hr.name-of-your-vertical-line {
 
 
 .thumbnail {
-  height: 180px;
+  min-height: 250px;
 }
 
 .thumbnail img{

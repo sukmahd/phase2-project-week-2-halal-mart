@@ -123,17 +123,14 @@
          <div class="col-md-7">
                <div class="row">
                  <div class="col-md-4" v-for="kat in kategori">
-                   <button type="button" name="button" class="button-sedang">{{kat}}</button>
+                   <button type="button" name="button" class="btn btn-info">{{kat}}</button>
                  </div>
                </div>
                <hr>
                <div class="row">
                  <div class="col-md-4">
                    <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Cari...">
-                     <span class="input-group-btn">
-                       <button class="btn btn-default" type="button">Go!</button>
-                     </span>
+                     Search: <input type="text" v-model="search"/>
                    </div><!-- /input-group -->
                  </div>
                  <div class="col-md-4"></div>
@@ -141,20 +138,15 @@
                </div>
                <hr>
                <div class="row">
-                 <div class="col-md-4"> </div>
-                 <div class="col-md-4"> </div>
-                 <div class="col-md-4"> </div>
-               </div>
-               <div class="row">
-                  <div class="col-sm-3 col-md-2" v-for="item in listBarang">
+                  <div class="col-sm-3 col-md-3" v-for="item in filteredBarang">
                     <div class="thumbnail">
                       <img :src="item.gambar" alt="...">
                       <div class="caption">
                         <h5>{{item.nama_barang}}</h5>
                         <h6>Rp. {{item.harga}}</h6>
                         <h6>Stok: {{item.stok}}</h6>
-                        <button v-if="item.stok > 0" type="button" name="button" @click="addToCart(item)">Add To Cart</button>
-                        <button v-else type="button" name="button">Sold Out</button>
+                        <button class="btn btn-success" v-if="item.stok > 0" type="button" name="button" @click="addToCart(item)">Add To Cart</button>
+                        <button class="btn btn-danger" v-else type="button" name="button">Sold Out</button>
                       </div>
                     </div>
                 </div>

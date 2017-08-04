@@ -9,7 +9,8 @@ const app = new Vue({
     stok: '',
     gambar: '',
     _id: '',
-    cart: []
+    cart: [],
+    search: ''
   },
   computed:{
     total(){
@@ -18,6 +19,15 @@ const app = new Vue({
         total+= (this.cart[i].harga * this.cart[i].quantity)
       }
       return total
+    },
+    filteredBarang:function()
+    {
+       var self=this;
+       return this.listBarang.filter(function(cust)
+       {
+         return cust.nama_barang.toLowerCase().indexOf(self.search.toLowerCase())>=0;
+       });
+       //return this.customers;
     }
   },
   methods:{
