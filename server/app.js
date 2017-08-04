@@ -13,6 +13,8 @@ mongoose.connect(url)
 var index = require('./routes/index');
 var barang = require('./routes/barang');
 var transaksi = require('./routes/transaksi');
+var users = require('./routes/users')
+
 
 
 var app = express();

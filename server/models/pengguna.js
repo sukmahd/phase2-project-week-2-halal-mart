@@ -5,7 +5,7 @@ var penggunaSchema = new mongoose.Schema({
     type : String,
     required :true
   },
-  userName : {
+  username : {
     type : String,
     required :true
   },
@@ -16,6 +16,10 @@ var penggunaSchema = new mongoose.Schema({
   peran: {
     type : String,
     required :true
+  },
+  key :{
+    type :String,
+    required : true
   }
 })
 
