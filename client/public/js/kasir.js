@@ -69,7 +69,7 @@ const app = new Vue({
   },
   created: function(){
     const self = this
-    axios.get('http://localhost:3000/barang',{
+    axios.get('http://localhost:3000/barang', {
       headers:{
         token: localStorage.getItem('token')
       }

@@ -1,5 +1,38 @@
 'use strict'
 
+Vue.component('filtered-barang', {
+  props: ['filtered'],
+  template: `
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama Barang</th>
+        <th>Kategori Barang</th>
+        <th>Harga</th>
+        <th>Stok</th>
+        <th>Pilihan</th>
+      </tr>
+    </thead>
+  <tbody>
+  <tr v-for='(barang, index) in filtered' class="fade-in">
+    <td>{{index+1}}</td>
+    <td>{{barang.nama_barang}}</td>
+    <td>{{barang.kategori}}</td>
+    <td>{{barang.harga}}</td>
+    <td><i class="glyphicon glyphicon-minus-sign" @click="minusStok(barang._id)"></i>
+                  {{barang.stok}}
+        <i class="glyphicon glyphicon-plus-sign" @click="addStok(barang._id)"></i></td>
+    <td>
+      <button type="button" name="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" @click="selectBarang(barang._id)"> <i class="glyphicon glyphicon-pencil" ></i></button>
+      <button type="button" name="button" class="btn btn-danger"  @click="deleteBarang(barang._id)"><i class="glyphicon glyphicon-trash"></i></button>
+    </td>
+  </tr>
+  </tbody>
+  </table>
+  `
+})
+
 const app = new Vue({
   el: '#app',
   data: {
