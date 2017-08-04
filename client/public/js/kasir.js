@@ -12,7 +12,11 @@ const app = new Vue({
   },
   created: function(){
     const self = this
-    axios.get('http://localhost:3000/barang')
+    axios.get('http://localhost:3000/barang', {
+      headers:{
+        token: localStorage.getItem('token')
+      }
+    })
     .then(result=>{
       self.listBarang = result.data;
       for(let i = 0 ; i < self.listBarang.length ; i++){
