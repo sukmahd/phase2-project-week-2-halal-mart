@@ -13,7 +13,7 @@ function signin(req,res){
       var token = jwt.sign({
         _id :data[0]._id,
         username : data[0].username,
-        peran : data[0].peran
+        role : data[0].peran
       },process.env.SECRET_KEY);
       console.log(token);
       res.send(token)
