@@ -16,12 +16,6 @@
     <link rel="stylesheet" href="public/css/style.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-        </div>
-      </div>
-    </div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4">
@@ -34,96 +28,123 @@
       </div>
     </div>
     <hr>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-2">
-        </div>
-        <div class="col-md-8">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Id Barang</th>
-                  <th>Nama Barang</th>
-                  <th>Kategori Barang</th>
-                  <th>Harga</th>
-                  <th>Stok</th>
-                  <th>Pilihan</th>
-                </tr>
-              </thead>
-              <tbody>
+        <div class="col-md-5">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Jumlah</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span class="glyphicon glyphicon-trash"></span></td>
+              </tr>
+            </tbody>
+          </table> 
+          <div class="row">
+            <div class="col-md-5">
+              
+            </div>
+            <div class="col-md-2">
+              <button class="button-kecil" data-toggle="modal" data-target="#myModal"><span>Checkout</span></button>
+                        <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
                 
-              </tbody>
-            </table>
-            <button class="button-kecil" data-toggle="modal" data-target="#myModal"><span>Tambah Barang</span></button>
-            <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Tambah Barang</h4>
-        </div>
-        <div class="modal-body">
-          <form class="form-horizontal" method="post">
-            <div class="form-group">
-              <div class="row">
-                <label class="col-sm-3 control-label">Nama</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Nama barang">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <div class="row">
+                        <div class="col-md-5"> </div>
+                        <div class="col-md-2"><img class="logo" src="public/img/logo.png" alt=""> </div>
+                        <div class="col-md-5"> </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-2"> </div>
+                        <div class="col-md-8">
+                          <h4 class="center">Jl. Ngalor Ngidul No 99</h4>
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Jumlah</td>
+                                <td>Nama</td>
+                                <td>Harga</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <h4 class="center">(Total Belanja)</h4>
+                        </div>
+                        <div class="col-md-2"> </div>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="modal-footer">
+                      <h5 class="center">Terimakasih telah berbelanja di Halal-Mart.</h5>
+                    </div>
+                  </div>
+                  
                 </div>
-                <div class="col-sm-3"></div>
               </div>
             </div>
-            <div class="form-group">
-              <div class="row">
-                <label class="col-sm-3 control-label">Kategori</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Kategori">
-                </div>
-                <div class="col-sm-3"></div>
-              </div>
+            <div class="col-md-5">
             </div>
-            <div class="form-group">
-              <div class="row">
-                <label class="col-sm-3 control-label">Harga</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Harga barang">
+          </div>
+        </div>
+         <div class="col-md-7">
+               <div class="row">
+                 <div class="col-md-4">
+                   <img src="..." alt="..." class="img-rounded">
+                 </div>
+               </div>
+               <hr>
+               <div class="row">
+                 <div class="col-md-4">
+                   <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Cari...">
+                     <span class="input-group-btn">
+                       <button class="btn btn-default" type="button">Go!</button>
+                     </span>
+                   </div><!-- /input-group -->
+                 </div>
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+               </div>
+               <hr>
+               <div class="row">
+                 <div class="col-md-4"> </div>
+                 <div class="col-md-4"> </div>
+                 <div class="col-md-4"> </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-3 col-md-2">
+                    <div class="thumbnail">
+                      <img src="..." alt="...">
+                      <div class="caption">
+                        <h5>Nama Makanan</h5>
+                        <h6>Harga</h6>
+                      </div>
+                    </div>
                 </div>
-                <div class="col-sm-3"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <label class="col-sm-3 control-label">Stok</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" placeholder="Stok barang">
-                </div>
-                <div class="col-sm-3"></div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="row">
-                <div class="col-sm-3"></div>
-                <div class="col-sm-6">
-                  <button class="button-kecil"><span>Tambah</span></button>
-                </div>
-                <div class="col-sm-3"></div>
-              </div>
-            </div>
-            
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-        </div>
-        <div class="col-md-2">
-        </div>
+               </div>
+         </div>
       </div>
     </div>
     <div class="container-fluid">
