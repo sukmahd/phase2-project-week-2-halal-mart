@@ -1,6 +1,7 @@
 'use strict'
 
 const Transaksi = require('../models/transaksi')
+const Barang = require('../models/barang')
 
 function createTransaksi(req,res){
   Transaksi.create({
@@ -9,6 +10,29 @@ function createTransaksi(req,res){
     total: req.body.total
   })
   .then(log=>{
+    for (var i = 0; i < req.body.listBarang.length; i++) {
+      let data = req.body.listBarang[i];
+      Barang.findById(req.body.listBarang[i].idBarang)
+      .then(row=>{
+        console.log(row, 'ini row');
+        console.log(data);
+        Barang.findOneAndUpdate({
+          _id: row._id
+        },{
+          stok: row.stok - data.quantity
+        })
+        .then(log=>{
+          console.log(log);
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+      console.log('asdsd');
+    }
     res.send(log)
   })
   .catch(err=>{
