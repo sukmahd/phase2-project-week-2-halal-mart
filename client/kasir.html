@@ -44,28 +44,36 @@
               </tr>
             </thead>
             <tbody>
+              <!-- CONTENT PLACE -->
+              <tr v-for="barang in cart">
+                <td>{{barang.nama_barang}}</td>
+                <td>{{barang.harga}}</td>
+                <td>{{barang.quantity}}</td>
+                <td>{{barang.quantity * barang.harga}}</td>
+                <td><span class="glyphicon glyphicon-trash" @click="removeFromCart"></span></td>
+              </tr>
+              <!-- CONTENT END -->
               <tr>
+                <td>Total: </td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td><span class="glyphicon glyphicon-trash"></span></td>
+                <td>{{total}}</td>
               </tr>
             </tbody>
-          </table> 
+          </table>
           <div class="row">
             <div class="col-md-5">
-              
+
             </div>
             <div class="col-md-2">
-              <button class="button-kecil" data-toggle="modal" data-target="#myModal"><span>Checkout</span></button>
+              <button class="button-kecil" data-toggle="modal" data-target="#myModal" @click="checkoutBarang()"><span>Checkout</span></button>
                         <div class="modal fade" id="myModal" role="dialog">
                 <div class="modal-dialog">
-                
+
                   <!-- Modal content-->
                   <div class="modal-content">
                     <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <button type="button" class="close" data-dismiss="modal" @click="reset()">&times;</button>
                       <div class="row">
                         <div class="col-md-5"> </div>
                         <div class="col-md-2"><img class="logo" src="public/img/logo.png" alt=""> </div>
@@ -78,31 +86,31 @@
                           <table class="table">
                             <thead>
                               <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
                                 <td>Jumlah</td>
                                 <td>Nama</td>
                                 <td>Harga</td>
                               </tr>
+                            </thead>
+                            <tbody>
+                              <tr v-for="barang in cart">
+                                <th>{{barang.quantity}}</th>
+                                <th>{{barang.nama_barang}}</th>
+                                <th>{{barang.harga}}</th>
+                              </tr>
                             </tbody>
                           </table>
-                          <h4 class="center">(Total Belanja)</h4>
+                          <h4 class="center">{{total}}</h4>
                         </div>
                         <div class="col-md-2"> </div>
                       </div>
-                      
+
                     </div>
-                    
+
                     <div class="modal-footer">
                       <h5 class="center">Terimakasih telah berbelanja di Halal-Mart.</h5>
                     </div>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
@@ -142,6 +150,7 @@
                       <div class="caption">
                         <h5>{{item.nama_barang}}</h5>
                         <h6>Rp. {{item.harga}}</h6>
+                        <button type="button" name="button" @click="addToCart(item)">Add To Cart</button>
                       </div>
                     </div>
                 </div>
@@ -154,7 +163,7 @@
       </footer>
     </div>
     <script src="public/js/kasir.js" type="text/javascript">
-      
+
     </script>
   </body>
 </html>

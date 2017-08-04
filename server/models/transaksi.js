@@ -7,7 +7,10 @@ var transaksiSchema = new mongoose.Schema({
     required :true
   },
   listBarang : {
-    type : [{type:Schema.Types.ObjectId, ref: 'Barang'}],
+    type : [{
+        idBarang:{type:Schema.Types.ObjectId, ref: 'Barang'},
+        quantity: {type: Number, required:true}
+    }],
     required :true
   },
   total : {

@@ -18,7 +18,7 @@ function createTransaksi(req,res){
 
 function getAllTransaksi(req,res){
   Transaksi.find()
-  .populate('listBarang')
+  .populate('idBarang')
   .then(result=>{
     res.send(result)
   })
