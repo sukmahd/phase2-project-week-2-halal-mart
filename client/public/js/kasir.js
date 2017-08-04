@@ -98,6 +98,11 @@ const app = new Vue({
     },
     reset: function(){
       this.cart = []
+    },
+    logout: function(){
+      alert('Anda Sudah Logout')
+      localStorage.removeItem('token')
+      window.location.href = 'index.html'
     }
   },
   created: function(){

@@ -18,6 +18,9 @@
     <script src="https://unpkg.com/vue"></script>
   </head>
   <body>
+    <div id="app">
+      
+  
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -31,12 +34,16 @@
         </div>
         <div class="col-md-4">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-2">
+          
+        </div>
+        <div class="col-md-2">
+          <button type="button" name="button" @click="logout()" class="button-kecil">Logout</button>
         </div>
       </div>
     </div>
     <hr>
-    <div class="container" id="app">
+    <div class="container" >
       <!-- TESTING -->
       <div class="row">
         <div id="main">
@@ -49,11 +56,9 @@
       <div class="row">
         
         <div class="col-md-8 col-md-offset-2">
-            
-            
               
               <!-- data place -->
-              <filtered-barang :filtered="filteredBarang"></filtered-barang>
+              <filtered-barang :filtered="filteredBarang" :list="listBarang" :add="addStok" :minus="minusStok" :select="selectBarang" :hapus="deleteBarang"></filtered-barang>
               <!-- end data place -->
               
             <!-- </table> -->
@@ -211,14 +216,16 @@
             <!-- END MODAL EDIT -->
         </div>
         <div class="col-md-2">
+          
         </div>
       </div>
-      <button type="button" name="button" @click="logout()">Logout</button>
+      
     </div>
     <div class="container-fluid">
       <footer>
 
       </footer>
+    </div>
     </div>
     <script src="public/js/inventory.js" type="text/javascript">
 
