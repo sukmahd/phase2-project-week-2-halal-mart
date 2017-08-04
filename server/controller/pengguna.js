@@ -14,7 +14,6 @@ function getPengguna(req,res) {
 
 function insertPengguna(req,res){
   var newKey = makeKey()
-  console.log(req.body.password);
   var makePassword = encryptPassword(req.body.password,newKey)
   var newPengguna = new pengguna({
     nama : req.body.nama,
