@@ -9,6 +9,7 @@ const app = new Vue({
     kategori: '',
     harga: '',
     stok: '',
+    gambar: '',
     _id: ''
   },
   methods:{
@@ -18,7 +19,8 @@ const app = new Vue({
         nama_barang: self.nama_barang,
         kategori: self.kategori,
         harga: self.harga,
-        stok: self.stok
+        stok: self.stok,
+        gambar: self.gambar
       })
       .then(log=>{
         console.log(log.data);
@@ -27,6 +29,7 @@ const app = new Vue({
         self.kategori = ''
         self.harga = ''
         self.stok = ''
+        self.barang = ''
       })
       .catch(err=>{
         console.log(err);
@@ -85,7 +88,8 @@ const app = new Vue({
         nama_barang: self.nama_barang,
         kategori: self.kategori,
         harga: self.harga,
-        stok: self.stok
+        stok: self.stok,
+        gambar: self.gambar
       })
       .then(log=>{
         const newData = self.listBarang.map(function(barang){
@@ -94,6 +98,7 @@ const app = new Vue({
             barang.kategori = self.kategori
             barang.harga = self.harga
             barang.stok = self.stok
+            barang.gambar = self.gambar
             return barang
           }else {
             return barang
@@ -115,6 +120,7 @@ const app = new Vue({
         self.kategori = row.data.kategori
         self.harga = row.data.harga
         self.stok = row.data.stok
+        self.gambar = row.data.gambar
       })
       .catch(err=>{
         console.log(err);
@@ -126,6 +132,7 @@ const app = new Vue({
     axios.get('http://localhost:3000/barang')
     .then(result=>{
       self.listBarang = result.data
+      console.log(result.data);
     })
     .catch(err=>{
       console.log(err);

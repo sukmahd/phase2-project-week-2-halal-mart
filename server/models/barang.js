@@ -16,6 +16,9 @@ var barangSchema = new mongoose.Schema({
   stok : {
     type : Number,
     required :true
+  },
+  gambar: {
+    type: String
   }
 })
 

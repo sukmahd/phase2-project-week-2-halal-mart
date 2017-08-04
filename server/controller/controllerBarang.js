@@ -53,7 +53,8 @@ function editBarang(req,res){
     nama_barang: req.body.nama_barang,
     kategori: req.body.kategori,
     harga: req.body.harga,
-    stok: req.body.stok
+    stok: req.body.stok,
+    gambar: req.body.gambar
   })
   .then(log=>{
     res.send(log)
@@ -68,7 +69,8 @@ function addBarang(req,res){
     nama_barang: req.body.nama_barang,
     kategori: req.body.kategori,
     harga: req.body.harga,
-    stok: req.body.stok
+    stok: req.body.stok,
+    gambar: req.body.gambar
   })
   .then(log=>{
     res.send(log)

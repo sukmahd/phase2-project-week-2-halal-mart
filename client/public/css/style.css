@@ -229,6 +229,47 @@ body, html {
   right: 0;
 }
 
+.button-sedang {
+  border-radius: 4px;
+  background-color: rgb(104, 145, 162);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  width: 150px;
+  height: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.button-sedang span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button-sedang span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button-sedang:hover span {
+  padding-right: 25px;
+}
+
+.button-sedang:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 .logo {
   height: 80px;
   width: 100px;
@@ -243,4 +284,14 @@ hr.name-of-your-vertical-line {
   background-image: -ms-linear-gradient(top, #color1, #color2, #color3);
   background-image: -o-linear-gradient(top, #color1, #color2, #color3);
   background-image: linear-gradient(top, #color1, #color2, #color3);
+}
+
+
+.thumbnail {
+  height: 200px;
+}
+
+.thumbnail img{
+  height: 100px;
+  
 }
