@@ -1,7 +1,7 @@
 'use strict'
 
 Vue.component('filtered-barang', {
-  props: ['filtered'],
+  props: ['filtered','minus','add','select','hapus'],
   template: `
   <table class="table table-hover">
     <thead>
@@ -20,12 +20,12 @@ Vue.component('filtered-barang', {
     <td>{{barang.nama_barang}}</td>
     <td>{{barang.kategori}}</td>
     <td>{{barang.harga}}</td>
-    <td><i class="glyphicon glyphicon-minus-sign" @click="minusStok(barang._id)"></i>
+    <td><i class="glyphicon glyphicon-minus-sign" @click="minus(barang._id)"></i>
                   {{barang.stok}}
-        <i class="glyphicon glyphicon-plus-sign" @click="addStok(barang._id)"></i></td>
+        <i class="glyphicon glyphicon-plus-sign" @click="add(barang._id)"></i></td>
     <td>
-      <button type="button" name="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" @click="selectBarang(barang._id)"> <i class="glyphicon glyphicon-pencil" ></i></button>
-      <button type="button" name="button" class="btn btn-danger"  @click="deleteBarang(barang._id)"><i class="glyphicon glyphicon-trash"></i></button>
+      <button type="button" name="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal2" @click="select(barang._id)"> <i class="glyphicon glyphicon-pencil" ></i></button>
+      <button type="button" name="button" class="btn btn-danger"  @click="hapus(barang._id)"><i class="glyphicon glyphicon-trash"></i></button>
     </td>
   </tr>
   </tbody>
