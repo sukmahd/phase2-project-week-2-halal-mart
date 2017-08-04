@@ -9,6 +9,6 @@ var authen = require('../controller/autentikasi')
 /* GET users listing. */
 router.get('/', verifyAdmin.authAdmin ,pengguna.getPengguna);
 router.post('/', pengguna.insertPengguna);
-router.get('/signin', authen.signin);
+router.post('/signin', authen.signin);
 
 module.exports = router;

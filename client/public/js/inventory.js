@@ -9,7 +9,8 @@ const app = new Vue({
     kategori: '',
     harga: '',
     stok: '',
-    _id: ''
+    _id: '',
+    search: ''
   },
   methods:{
     addBarang:function(){
@@ -29,7 +30,7 @@ const app = new Vue({
         self.stok = ''
       })
       .catch(err=>{
-        console.log(err);
+        console.log(err, 'ini error');
       })
     },
     deleteBarang: function(id){
@@ -119,16 +120,37 @@ const app = new Vue({
       .catch(err=>{
         console.log(err);
       })
+    },
+    logout: function(){
+      alert('Anda Sudah Logout')
+      localStorage.removeItem('token')
+      window.location.href = 'index.html'
     }
   },
+  computed:{
+        filteredBarang:function()
+        {
+        	 var self=this;
+           return this.listBarang.filter(function(cust)
+           {
+             return cust.nama_barang.toLowerCase().indexOf(self.search.toLowerCase())>=0;
+           });
+           //return this.customers;
+        }
+      },
   created: function(){
     const self = this
-    axios.get('http://localhost:3000/barang')
+    axios.get('http://localhost:3000/barang',{
+      headers:{
+        token: localStorage.getItem('token')
+      }
+    })
     .then(result=>{
       self.listBarang = result.data
     })
     .catch(err=>{
-      console.log(err);
+      alert('Anda Blum Login')
+      window.location.href = 'index.html'
     })
   }
 })
