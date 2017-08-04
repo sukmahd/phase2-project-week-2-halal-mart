@@ -16,10 +16,18 @@ const app = new Vue({
         password: self.password
       })
       .then(log=>{
-        const tokenJwt = log.data;
-        console.log(tokenJwt);
-        localStorage.setItem('token', tokenJwt)
-        window.location.href = 'menu_admin.html'
+        if (log.data=="salah") {
+          alert("Your Password Wrong")
+          self.password = ''
+        }else if (log.data =="notUser") {
+          alert("Your don't have any access")
+          self.username = ''
+          self.password = ''
+        }else {
+          const tokenJwt = log.data;
+          localStorage.setItem('token', tokenJwt)
+          window.location.href = 'menu_admin.html'
+        }
       })
       .catch(err=>{
         console.log(err);

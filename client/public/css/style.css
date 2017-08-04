@@ -4,8 +4,8 @@
 /*
  * General styles
  */
- 
- 
+
+
 body, html {
     height: 100%;
     background-repeat: no-repeat;
@@ -15,7 +15,6 @@ body, html {
 .center {
   text-align: center;
 }
-
 
 
 .card-container.card {
@@ -293,5 +292,5 @@ hr.name-of-your-vertical-line {
 
 .thumbnail img{
   height: 100px;
-  
+
 }

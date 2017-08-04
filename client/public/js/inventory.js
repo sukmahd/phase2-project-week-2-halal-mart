@@ -31,6 +31,7 @@ const app = new Vue({
         self.harga = ''
         self.stok = ''
         self.barang = ''
+        self.gambar = ''
       })
       .catch(err=>{
         console.log(err, 'ini error');
